@@ -1,0 +1,83 @@
+{
+  "indicadores": {
+    "total_capturas": 2221,
+    "numero_territorios": 33,
+    "tamano_muestra_territorios": 33,
+    "promedio_capturas_por_territorio": 67.3030303030303,
+    "mediana_capturas_por_territorio": 47.0,
+    "minimo_capturas": 4,
+    "territorios_minimo": [
+      "Archipiélago de San Andrés, Providencia y Santa Catalina",
+      "Guainía"
+    ],
+    "maximo_capturas": 286,
+    "territorios_maximo": [
+      "Antioquia"
+    ],
+    "rango_capturas": 282,
+    "desviacion_estandar_muestral": 66.83771617156216,
+    "primer_cuartil": 29.0,
+    "tercer_cuartil": 80.0,
+    "rango_intercuartil": 51.0,
+    "limite_inferior_1_5_ric": -47.5,
+    "limite_superior_1_5_ric": 156.5,
+    "posibles_valores_atipicos": [
+      {
+        "departamento": "Valle del Cauca",
+        "capturas": 203
+      },
+      {
+        "departamento": "Bogotá, D.C.",
+        "capturas": 255
+      },
+      {
+        "departamento": "Antioquia",
+        "capturas": 286
+      }
+    ],
+    "concentracion_top": {
+      "3": {
+        "capturas": 744,
+        "total_capturas": 2221,
+        "participacion_porcentual": 33.4984241332733
+      },
+      "5": {
+        "capturas": 996,
+        "total_capturas": 2221,
+        "participacion_porcentual": 44.84466456551103
+      },
+      "10": {
+        "capturas": 1397,
+        "total_capturas": 2221,
+        "participacion_porcentual": 62.89959477712742
+      }
+    },
+    "fuente": "Archivo agregado suministrado por el estudiante; fuente original pendiente de confirmación."
+  },
+  "metadatos": {
+    "fecha_generacion": "2026-11-24",
+    "autor": null,
+    "institucion": null,
+    "periodo_referencia": null,
+    "fuente_original": null,
+    "registros_originales": 33,
+    "registros_finales": 33,
+    "unidad_observacion": "Territorio agregado",
+    "variables": [
+      {
+        "nombre": "departamento",
+        "tipo": "Categórica nominal y geográfica"
+      },
+      {
+        "nombre": "capturas",
+        "tipo": "Cuantitativa discreta"
+      }
+    ],
+    "herramientas": [
+      "Python",
+      "pandas",
+      "Altair",
+      "Vega-Lite"
+    ]
+  }
+}

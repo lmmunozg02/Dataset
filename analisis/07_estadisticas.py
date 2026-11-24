@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from datetime import date
 from pathlib import Path
 
 import pandas as pd
@@ -11,6 +12,7 @@ import pandas as pd
 RAIZ_REPOSITORIO = Path(__file__).resolve().parents[1]
 RUTA_DATOS = RAIZ_REPOSITORIO / "datos" / "limpio" / "capturas_colombia_limpio.csv"
 DIRECTORIO_TABLAS = RAIZ_REPOSITORIO / "docs" / "tablas"
+RUTA_INDICADORES_WEB = RAIZ_REPOSITORIO / "docs" / "data" / "indicadores.json"
 
 
 def calcular_estadisticas(
@@ -142,6 +144,7 @@ def main() -> None:
     ) = calcular_estadisticas(datos)
 
     DIRECTORIO_TABLAS.mkdir(parents=True, exist_ok=True)
+    RUTA_INDICADORES_WEB.parent.mkdir(parents=True, exist_ok=True)
     tabla_estadisticas.to_csv(
         DIRECTORIO_TABLAS / "estadisticas_descriptivas.csv",
         index=False,
@@ -166,6 +169,34 @@ def main() -> None:
         json.dumps(estadisticas, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    indicadores_web = {
+        "indicadores": estadisticas,
+        "metadatos": {
+            "fecha_generacion": date.today().isoformat(),
+            "autor": None,
+            "institucion": None,
+            "periodo_referencia": None,
+            "fuente_original": None,
+            "registros_originales": int(len(datos)),
+            "registros_finales": int(len(datos)),
+            "unidad_observacion": "Territorio agregado",
+            "variables": [
+                {
+                    "nombre": "departamento",
+                    "tipo": "Categórica nominal y geográfica",
+                },
+                {
+                    "nombre": "capturas",
+                    "tipo": "Cuantitativa discreta",
+                },
+            ],
+            "herramientas": ["Python", "pandas", "Altair", "Vega-Lite"],
+        },
+    }
+    RUTA_INDICADORES_WEB.write_text(
+        json.dumps(indicadores_web, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     print(tabla_estadisticas.to_string(index=False))
     print("\nConcentración acumulada:")
@@ -173,6 +204,10 @@ def main() -> None:
     print("\nPosibles valores atípicos (no eliminados):")
     print(atipicos.to_string(index=False) if not atipicos.empty else "Ninguno según 1,5 × RIC.")
     print(f"\nResultados guardados en: {DIRECTORIO_TABLAS.relative_to(RAIZ_REPOSITORIO)}")
+    print(
+        "Indicadores para el sitio: "
+        f"{RUTA_INDICADORES_WEB.relative_to(RAIZ_REPOSITORIO)}"
+    )
 
 
 if __name__ == "__main__":

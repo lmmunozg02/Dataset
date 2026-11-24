@@ -57,8 +57,8 @@ def crear_grafico(datos: pd.DataFrame) -> alt.TopLevelMixin:
             ),
             color=alt.condition(
                 seleccion,
-                alt.value("#1f5a85"),
-                alt.value("#b7c8d6"),
+                alt.value("#2563EB"),
+                alt.value("#DBEAFE"),
             ),
             tooltip=[
                 alt.Tooltip("departamento:N", title="Territorio"),
@@ -75,11 +75,11 @@ def crear_grafico(datos: pd.DataFrame) -> alt.TopLevelMixin:
             ],
         )
         .add_params(seleccion)
-        .properties(width=760, height=820)
+        .properties(width="container", height=820)
     )
     etiquetas = (
         alt.Chart(datos)
-        .mark_text(align="left", baseline="middle", dx=4, fontSize=10, color="#263746")
+        .mark_text(align="left", baseline="middle", dx=4, fontSize=10, color="#0F172A")
         .encode(
             y=alt.Y(
                 "departamento:N",
@@ -117,7 +117,7 @@ def crear_grafico(datos: pd.DataFrame) -> alt.TopLevelMixin:
         )
         .mark_text(align="left", fontSize=11, color="#4b5563")
         .encode(text="fuente:N")
-        .properties(width=760, height=28)
+        .properties(width="container", height=28)
     )
     return (
         alt.vconcat(grafico, pie, spacing=8)

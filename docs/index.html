@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#0F172A">
+  <title>Capturas por delitos sexuales contra menores en Colombia | Análisis territorial</title>
+  <meta name="description" content="Explora la distribución territorial de las capturas registradas por delitos sexuales contra niños, niñas y adolescentes en Colombia mediante gráficos interactivos y resultados agregados.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="La geografía de las capturas en Colombia">
+  <meta property="og:description" content="Un análisis territorial de las capturas registradas por delitos sexuales contra niños, niñas y adolescentes.">
+  <meta property="og:locale" content="es_CO">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="La geografía de las capturas en Colombia">
+  <meta name="twitter:description" content="Un análisis territorial de capturas registradas, con visualizaciones y transparencia metodológica.">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "La geografía de las capturas en Colombia",
+    "description": "Análisis exploratorio y descriptivo de registros agregados de capturas por territorio.",
+    "inLanguage": "es-CO"
+  }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="salto-contenido" href="#contenido">Saltar al contenido principal</a>
+  <div class="progreso-lectura" aria-hidden="true"><span id="progreso-lectura"></span></div>
+
+  <header class="encabezado">
+    <div class="barra-navegacion">
+      <a class="marca" href="#inicio" aria-label="La geografía de las capturas, inicio">
+        <span class="marca-simbolo" aria-hidden="true">G</span>
+        <span class="marca-texto">Geografía de las capturas</span>
+      </a>
+      <button class="boton-menu" type="button" aria-expanded="false" aria-controls="navegacion-principal">
+        <span class="sr-only">Abrir menú de navegación</span>
+        <span class="icono-menu" aria-hidden="true"></span>
+      </button>
+      <nav id="navegacion-principal" class="navegacion" aria-label="Navegación principal">
+        <a href="#contexto">Contexto</a>
+        <a href="#panorama">Panorama</a>
+        <a href="#distribucion">Distribución</a>
+        <a href="#ranking">Ranking</a>
+        <a href="#territorio">Territorio</a>
+        <a href="#metodologia">Metodología</a>
+        <a href="#conclusiones">Conclusiones</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero seccion-ancla">
+      <div class="hero-contenido">
+        <p class="sobretitulo">Investigación <span aria-hidden="true">/</span> Periodismo de datos <span aria-hidden="true">/</span> Colombia</p>
+        <h1>La geografía de las capturas <em>en Colombia</em></h1>
+        <p class="hero-bajada">Un recorrido por los datos que permite comprender cómo se distribuyen territorialmente las capturas registradas por delitos sexuales contra niños, niñas y adolescentes.</p>
+        <div class="hero-metadatos">
+          <p><span>Autoría</span><strong data-meta="autor">Pendiente de confirmación</strong></p>
+          <p><span>Periodo analizado</span><strong data-meta="periodo_referencia">Pendiente de confirmación</strong></p>
+          <p><span>Fuente original</span><strong data-meta="fuente_original">Pendiente de confirmación</strong></p>
+        </div>
+        <div class="hero-acciones">
+          <a class="boton boton-principal" href="#panorama">Explorar los datos <span aria-hidden="true">↓</span></a>
+          <a class="boton boton-secundario" href="#metodologia">Consultar metodología</a>
+        </div>
+      </div>
+      <aside class="hero-ficha" aria-label="Alcance del conjunto analizado">
+        <div class="ficha-registros">
+          <span class="ficha-etiqueta">Registros agregados</span>
+          <strong data-indicador="total_capturas">—</strong>
+          <span class="ficha-nota">capturas registradas</span>
+        </div>
+        <div class="ficha-territorios">
+          <span class="ficha-etiqueta">Cobertura del archivo</span>
+          <strong><span data-indicador="numero_territorios">—</span> <small>territorios</small></strong>
+          <span class="ficha-nota">Unidad de observación agregada</span>
+        </div>
+        <p class="ficha-aviso">Los conteos describen registros de capturas; no son una medida directa de incidencia delictiva.</p>
+        <span class="ficha-linea" aria-hidden="true"></span>
+      </aside>
+      <div class="hero-pie">
+        <span>Fuente: <span data-meta="fuente_resumen">archivo agregado suministrado por el estudiante; fuente original pendiente de confirmación</span></span>
+        <a href="#contexto">Una lectura descriptiva, no causal</a>
+      </div>
+    </section>
+
+    <section id="contexto" class="seccion seccion-contexto seccion-ancla">
+      <div class="contenedor">
+        <div class="encabezado-seccion revelar">
+          <p class="sobretitulo">01 / Punto de partida</p>
+          <h2>¿Qué estamos investigando?</h2>
+        </div>
+        <div class="contexto-grid">
+          <div class="contexto-texto revelar">
+            <p class="texto-destacado">Este proyecto explora cómo se distribuyen territorialmente los registros disponibles de capturas por delitos sexuales contra niños, niñas y adolescentes.</p>
+            <p>La pregunta que guía el análisis es: <strong>¿Cómo se distribuyen territorialmente las capturas por delitos sexuales contra niños, niñas y adolescentes en Colombia y qué departamentos presentan los mayores registros?</strong></p>
+            <p>El archivo reúne conteos agregados por territorio. El análisis compara esos conteos y describe su distribución, sin atribuirles causas ni convertirlos en una medida de riesgo o incidencia.</p>
+          </div>
+          <aside class="nota-editorial revelar">
+            <span class="nota-icono" aria-hidden="true">“</span>
+            <blockquote>Una captura no equivale necesariamente a una víctima, una denuncia, una condena ni a la totalidad de delitos cometidos.</blockquote>
+            <p>Alcance central del proyecto</p>
+          </aside>
+        </div>
+        <p class="pendiente-contexto revelar"><strong>Proyecto original del libro:</strong> pendiente de confirmación por el estudiante. No se incorpora contexto institucional no documentado.</p>
+      </div>
+    </section>
+
+    <section id="panorama" class="seccion seccion-panorama seccion-ancla">
+      <div class="contenedor">
+        <div class="encabezado-seccion encabezado-claro revelar">
+          <p class="sobretitulo">02 / Panorama nacional</p>
+          <h2>Un conjunto agregado, cinco cifras para orientarse</h2>
+          <p>Indicadores calculados desde los registros territoriales disponibles. La unidad de análisis es el territorio, no cada captura individual.</p>
+        </div>
+        <div class="tarjetas-indicadores">
+          <article class="tarjeta-indicador revelar">
+            <span class="indicador-etiqueta">Capturas registradas</span>
+            <strong data-indicador="total_capturas">—</strong>
+            <span class="indicador-detalle">Suma de los conteos territoriales</span>
+          </article>
+          <article class="tarjeta-indicador revelar">
+            <span class="indicador-etiqueta">Territorios analizados</span>
+            <strong data-indicador="numero_territorios">—</strong>
+            <span class="indicador-detalle">Registros agregados disponibles</span>
+          </article>
+          <article class="tarjeta-indicador revelar">
+            <span class="indicador-etiqueta">Promedio por territorio</span>
+            <strong data-indicador="promedio_capturas_por_territorio">—</strong>
+            <span class="indicador-detalle">Media aritmética de los conteos</span>
+          </article>
+          <article class="tarjeta-indicador revelar">
+            <span class="indicador-etiqueta">Mediana por territorio</span>
+            <strong data-indicador="mediana_capturas_por_territorio">—</strong>
+            <span class="indicador-detalle">Valor central de los conteos ordenados</span>
+          </article>
+          <article class="tarjeta-indicador tarjeta-indicador-destacada revelar">
+            <span class="indicador-etiqueta">Mayor registro observado</span>
+            <strong class="indicador-territorio" data-indicador="territorio_maximo">—</strong>
+            <span class="indicador-detalle"><span data-indicador="maximo_capturas">—</span> capturas registradas</span>
+          </article>
+          <article class="tarjeta-indicador revelar">
+            <span class="indicador-etiqueta">Participación de los cinco primeros</span>
+            <strong><span data-indicador="top5_porcentaje">—</span><small>%</small></strong>
+            <span class="indicador-detalle"><span data-detalle="top5_capturas">—</span> capturas del total</span>
+          </article>
+        </div>
+        <p class="nota-cifras revelar">Las cifras corresponden a capturas registradas y no representan necesariamente el número total de delitos, víctimas o condenas.</p>
+      </div>
+    </section>
+
+    <section id="distribucion" class="seccion seccion-grafico seccion-ancla">
+      <div class="contenedor">
+        <div class="encabezado-seccion revelar">
+          <p class="sobretitulo">03 / Gráfico principal · Distribución</p>
+          <h2>¿Cómo se distribuyen las capturas entre los territorios?</h2>
+          <p>El histograma agrupa los conteos territoriales en intervalos. Las líneas punteadas señalan el promedio y la mediana.</p>
+        </div>
+        <div class="grafico-principal revelar">
+          <div class="grafico-cabecera">
+            <div>
+              <span class="etiqueta-grafico">Visualización interactiva</span>
+              <h3>Conteos territoriales agrupados en intervalos</h3>
+            </div>
+            <span class="muestra-grafico">n = <span data-indicador="tamano_muestra_territorios">—</span> territorios</span>
+          </div>
+          <div class="marco-grafico marco-histograma">
+            <iframe src="graficos/distribucion.html" title="Histograma interactivo de capturas registradas por territorio, con promedio y mediana" loading="lazy"></iframe>
+          </div>
+          <p class="instruccion-grafico">Pasa el cursor sobre las barras y las líneas para consultar intervalos y medidas. El histograma describe conteos agregados, no personas.</p>
+          <div class="resumen-distribucion revelar">
+            <p><span>Promedio</span><strong data-indicador="promedio_capturas_por_territorio">—</strong><small>capturas por territorio</small></p>
+            <p><span>Mediana</span><strong data-indicador="mediana_capturas_por_territorio">—</strong><small>capturas por territorio</small></p>
+            <p><span>Rango observado</span><strong><span data-indicador="minimo_capturas">—</span>–<span data-indicador="maximo_capturas">—</span></strong><small>capturas</small></p>
+          </div>
+          <p class="nota-atipicos">Posibles valores atípicos según el criterio de 1,5 × RIC (no eliminados): <strong data-indicador="posibles_atipicos">Cargando resultados…</strong></p>
+          <div class="tabla-frecuencias">
+            <h4>Frecuencias por intervalo</h4>
+            <div class="envoltura-tabla">
+              <table>
+                <caption>Territorios en cada intervalo de capturas</caption>
+                <thead><tr><th scope="col">Intervalo de capturas</th><th scope="col">Territorios</th></tr></thead>
+                <tbody id="frecuencias-body"><tr><td colspan="2">Cargando resultados calculados…</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="lectura-grafico-grid">
+          <article class="lectura-estudiante revelar">
+            <p class="sobretitulo">Lectura del estudiante</p>
+            <h3>Hallazgo y duda</h3>
+            <p>El histograma es la selección comunicada por el estudiante; su justificación, hallazgo y duda personales están pendientes de redacción y aprobación. No se sustituyen por una conclusión atribuida.</p>
+          </article>
+          <aside class="metrica-explicada revelar">
+            <h3>Cómo leer estas medidas</h3>
+            <dl>
+              <div><dt>Promedio</dt><dd>Suma de los conteos dividida entre el número de territorios observados.</dd></div>
+              <div><dt>Mediana</dt><dd>Valor que queda en el centro al ordenar los conteos territoriales.</dd></div>
+              <div><dt>Valores atípicos</dt><dd>Se identifican con el criterio de 1,5 × RIC; se describen, no se eliminan ni se atribuyen causas.</dd></div>
+            </dl>
+          </aside>
+        </div>
+        <p class="fuente-grafico">Fuente: <span data-meta="fuente_resumen">archivo agregado suministrado por el estudiante; fuente original pendiente de confirmación</span>. El periodo de referencia no está confirmado.</p>
+      </div>
+    </section>
+
+    <section id="ranking" class="seccion seccion-ranking seccion-ancla">
+      <div class="contenedor">
+        <div class="encabezado-seccion revelar">
+          <p class="sobretitulo">04 / Comparación territorial</p>
+          <h2>¿Qué territorios concentran los mayores registros?</h2>
+          <p>El orden compara cantidades absolutas registradas. No clasifica departamentos por peligrosidad, incidencia ni riesgo.</p>
+        </div>
+        <div class="ranking-panel revelar">
+          <div class="grafico-cabecera">
+            <div>
+              <span class="etiqueta-grafico">Ranking descendente</span>
+              <h3>Capturas registradas por territorio</h3>
+            </div>
+            <span class="muestra-grafico">n = <span data-indicador="tamano_muestra_territorios">—</span> territorios</span>
+          </div>
+          <div class="marco-grafico marco-ranking">
+            <iframe src="graficos/ranking.html" title="Gráfico interactivo de barras horizontales del ranking de capturas por territorio" loading="lazy"></iframe>
+          </div>
+          <p class="instruccion-grafico">Selecciona una barra para resaltarla; haz doble clic para quitar la selección. Los ejes de conteo comienzan en cero.</p>
+        </div>
+
+        <div class="controles-ranking revelar" aria-label="Controles para explorar la tabla de ranking">
+          <div class="control">
+            <label for="filtro-rango">Territorios que mostrar</label>
+            <select id="filtro-rango">
+              <option value="todos">Todos</option>
+              <option value="primeros5">Cinco primeros</option>
+              <option value="primeros10">Diez primeros</option>
+              <option value="ultimos5">Cinco últimos</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="orden-ranking">Orden de capturas</label>
+            <select id="orden-ranking">
+              <option value="desc">De mayor a menor</option>
+              <option value="asc">De menor a mayor</option>
+            </select>
+          </div>
+          <div class="control control-busqueda">
+            <label for="buscar-territorio">Buscar un territorio</label>
+            <input id="buscar-territorio" type="search" placeholder="Escribe un nombre" autocomplete="off">
+          </div>
+        </div>
+        <p id="estado-tabla" class="estado-tabla" role="status" aria-live="polite">Cargando ranking agregado…</p>
+        <div class="envoltura-tabla revelar">
+          <table id="tabla-ranking">
+            <caption>Ranking de territorios por número de capturas; los porcentajes se acompañan de su conteo.</caption>
+            <thead>
+              <tr>
+                <th scope="col" aria-sort="ascending"><button type="button" data-ordenar="posicion">Posición <span aria-hidden="true">↕</span></button></th>
+                <th scope="col" aria-sort="none"><button type="button" data-ordenar="departamento">Territorio <span aria-hidden="true">↕</span></button></th>
+                <th scope="col" aria-sort="none"><button type="button" data-ordenar="capturas">Capturas <span aria-hidden="true">↕</span></button></th>
+                <th scope="col" aria-sort="none"><button type="button" data-ordenar="participacion_porcentual">Participación y conteo <span aria-hidden="true">↕</span></button></th>
+              </tr>
+            </thead>
+            <tbody id="ranking-body"><tr><td colspan="4">Cargando resultados calculados…</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="concentracion revelar">
+          <div class="concentracion-intro">
+            <p class="sobretitulo">Concentración descriptiva</p>
+            <h3>Participación de los territorios con mayores conteos</h3>
+            <p>Porcentaje del total, siempre acompañado del conteo absoluto correspondiente.</p>
+          </div>
+          <div class="concentracion-lista">
+            <div class="concentracion-item">
+              <div class="concentracion-label"><strong>Top 3</strong><span data-concentracion-texto="3">—</span></div>
+              <progress max="100" value="0" data-concentracion="3" aria-label="Participación de los tres primeros territorios"></progress>
+            </div>
+            <div class="concentracion-item">
+              <div class="concentracion-label"><strong>Top 5</strong><span data-concentracion-texto="5">—</span></div>
+              <progress max="100" value="0" data-concentracion="5" aria-label="Participación de los cinco primeros territorios"></progress>
+            </div>
+            <div class="concentracion-item">
+              <div class="concentracion-label"><strong>Top 10</strong><span data-concentracion-texto="10">—</span></div>
+              <progress max="100" value="0" data-concentracion="10" aria-label="Participación de los diez primeros territorios"></progress>
+            </div>
+          </div>
+        </div>
+        <p class="fuente-grafico">Fuente: <span data-meta="fuente_resumen">archivo agregado suministrado por el estudiante; fuente original pendiente de confirmación</span>. Muestra: <span data-indicador="tamano_muestra_territorios">—</span> territorios.</p>
+      </div>
+    </section>
+
+    <section id="territorio" class="seccion seccion-territorio seccion-ancla">
+      <div class="contenedor">
+        <div class="encabezado-seccion revelar">
+          <p class="sobretitulo">05 / Lectura territorial</p>
+          <h2>Una mirada territorial a las capturas registradas</h2>
+          <p>La cartografía no está disponible en una fuente verificable para este producto. En su lugar se muestra la alternativa en barras aprobada para comparar los registros.</p>
+        </div>
+        <div class="aviso-mapa revelar">
+          <span class="aviso-mapa-simbolo" aria-hidden="true">i</span>
+          <p><strong>Esto no es un mapa.</strong> No se muestran límites, ubicaciones ni relaciones de vecindad. No se asignaron valores a geometrías sin correspondencia verificada; la alternativa tampoco es una tasa poblacional o una escala de riesgo.</p>
+        </div>
+        <div class="grafico-territorial revelar">
+          <div class="grafico-cabecera">
+            <div>
+              <span class="etiqueta-grafico">Alternativa territorial · no es un mapa</span>
+              <h3>Conteos absolutos por territorio</h3>
+            </div>
+            <span class="muestra-grafico">n = <span data-indicador="tamano_muestra_territorios">—</span></span>
+          </div>
+          <div class="marco-grafico marco-territorial">
+            <iframe src="graficos/espacial.html" title="Gráfico alternativo, no cartográfico, de barras por territorio" loading="lazy"></iframe>
+          </div>
+          <p class="instruccion-grafico">Pasa el cursor o selecciona una barra para consultar conteos y participación porcentual.</p>
+          <p class="fuente-grafico">Fuente de conteos: <span data-meta="fuente_resumen">archivo agregado suministrado por el estudiante; fuente original pendiente de confirmación</span>. Fuente cartográfica consultada: DANE, MGN 2025; capa no disponible localmente. <a href="espacial.md">Consultar la verificación cartográfica</a>.</p>
+        </div>
+        <div class="lectura-estudiante lectura-estudiante-secundaria revelar">
+          <p class="sobretitulo">Lectura del estudiante</p>
+          <p>El hallazgo y la duda personales sobre esta visualización están pendientes de redacción. No se atribuye al estudiante una interpretación no suministrada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodologia" class="seccion seccion-metodologia seccion-ancla">
+      <div class="contenedor">
+        <div class="encabezado-seccion revelar">
+          <p class="sobretitulo">06 / Transparencia</p>
+          <h2>Cómo se construyó este análisis</h2>
+          <p>Los indicadores y las visualizaciones se generan a partir de scripts reproducibles de Python. El archivo original se conserva sin cambios.</p>
+        </div>
+        <div class="metodologia-resumen">
+          <article class="paso-metodo revelar"><span>01</span><h3>Unidad</h3><p>Un registro agregado por territorio; no son observaciones individuales de víctimas o delitos.</p></article>
+          <article class="paso-metodo revelar"><span>02</span><h3>Validación</h3><p>Se revisaron estructura, faltantes, duplicados, tipo de conteo y conservación del total.</p></article>
+          <article class="paso-metodo revelar"><span>03</span><h3>Descripción</h3><p>Distribución, ranking y concentración descriptiva; análisis espacial condicionado por cartografía verificable.</p></article>
+          <article class="paso-metodo revelar"><span>04</span><h3>Publicación</h3><p>El sitio consume resultados agregados en JSON generados por scripts de Python.</p></article>
+        </div>
+        <div class="detalles-metodo">
+          <details class="revelar">
+            <summary>Procedencia y registros</summary>
+            <div class="detalle-contenido">
+              <dl class="lista-metadatos">
+                <div><dt>Fuente original</dt><dd data-meta="fuente_original">Pendiente de confirmación documental.</dd></div>
+                <div><dt>Periodo de referencia</dt><dd data-meta="periodo_referencia">Pendiente de confirmación; no se infiere del nombre del archivo.</dd></div>
+                <div><dt>Registros originales</dt><dd data-meta="registros_originales">—</dd></div>
+                <div><dt>Registros finales</dt><dd data-meta="registros_finales">—</dd></div>
+                <div><dt>Unidad de observación</dt><dd data-meta="unidad_observacion">Territorio agregado</dd></div>
+                <div><dt>Generación del análisis</dt><dd data-meta="fecha_generacion">—</dd></div>
+              </dl>
+              <p>El archivo original se preservó byte por byte y el hash se documentó en la bitácora metodológica. La fuente de conteos sigue pendiente de confirmación documental.</p>
+            </div>
+          </details>
+          <details class="revelar">
+            <summary>Variables y transformaciones</summary>
+            <div class="detalle-contenido">
+              <ul>
+                <li><code>departamento</code>: variable categórica nominal/geográfica, nombre territorial consignado en el archivo.</li>
+                <li><code>capturas</code>: variable cuantitativa discreta, conteo agregado.</li>
+                <li>Se estandarizaron los nombres territoriales con correspondencias documentadas; Bogotá, D. C. se conserva separada de Cundinamarca.</li>
+                <li>No se rellenaron faltantes ni se eliminaron observaciones por posibles valores atípicos.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="revelar">
+            <summary>Alcance analítico y limitaciones</summary>
+            <div class="detalle-contenido">
+              <ul>
+                <li><strong>Distribución:</strong> histograma de los conteos y medidas de resumen; los intervalos dependen del criterio de agrupación.</li>
+                <li><strong>Ranking:</strong> ordenamiento de conteos absolutos; no describe incidencia ni riesgo.</li>
+                <li><strong>Relación:</strong> no aplica con las variables disponibles; no hay dos medidas adecuadas de asociación.</li>
+                <li><strong>Cambio temporal:</strong> no aplica; no existe una serie temporal documentada.</li>
+                <li><strong>Espacial:</strong> no se generó un mapa; la capa departamental DANE MGN 2025 no pudo descargarse ni emparejarse de forma verificable.</li>
+              </ul>
+              <p>Los conteos absolutos no son tasas poblacionales. Este conjunto no permite determinar directamente víctimas ni delitos cometidos, ni verificar factores que podrían relacionarse con diferencias entre territorios.</p>
+            </div>
+          </details>
+          <details class="revelar">
+            <summary>Herramientas y documentación</summary>
+            <div class="detalle-contenido">
+              <p data-meta="herramientas">Python, pandas, Altair y Vega-Lite.</p>
+              <ul class="enlaces-documentacion">
+                <li><a href="inventario.md">Inventario de variables</a></li>
+                <li><a href="limpieza.md">Documentación de limpieza</a></li>
+                <li><a href="lecturas.md">Lecturas y campos pendientes del estudiante</a></li>
+                <li><a href="graficos/distribucion.html">Abrir histograma en una pestaña</a></li>
+                <li><a href="graficos/ranking.html">Abrir ranking en una pestaña</a></li>
+                <li><a href="graficos/espacial.html">Abrir alternativa territorial en una pestaña</a></li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="conclusiones" class="seccion seccion-conclusiones seccion-ancla">
+      <div class="contenedor">
+        <div class="encabezado-seccion revelar">
+          <p class="sobretitulo">07 / Cierre</p>
+          <h2>Qué podemos leer y qué queda abierto</h2>
+          <p>Los resultados permiten describir los registros disponibles; las interpretaciones personales siguen bajo la responsabilidad del estudiante.</p>
+        </div>
+        <div class="cierre-grid">
+          <article class="cifras-cierre revelar">
+            <p class="sobretitulo">Cifras descriptivas verificadas</p>
+            <ul>
+              <li><strong data-indicador="territorio_maximo">—</strong>: <span data-indicador="maximo_capturas">—</span> capturas registradas, el mayor conteo del archivo.</li>
+              <li>El promedio es <strong data-indicador="promedio_capturas_por_territorio">—</strong> y la mediana <strong data-indicador="mediana_capturas_por_territorio">—</strong> capturas por territorio.</li>
+              <li>Los cinco primeros suman <strong data-detalle="top5_capturas">—</strong> capturas (<strong data-indicador="top5_porcentaje">—</strong> % del total).</li>
+            </ul>
+            <p>Estas cifras son descriptivas y no deben interpretarse como diferencias de incidencia o riesgo.</p>
+          </article>
+          <article class="conclusiones-estudiante revelar">
+            <p class="sobretitulo">Interpretación personal</p>
+            <h3>Pendiente de aprobación</h3>
+            <p>Los hallazgos, las dudas y la justificación del gráfico principal todavía no han sido redactados por el estudiante. Esta página no inventa ni reescribe esas interpretaciones.</p>
+            <a href="lecturas.md">Consultar la guía de lecturas</a>
+          </article>
+        </div>
+        <div class="no-dicen revelar">
+          <h3>¿Qué no nos dicen estos datos?</h3>
+          <ul>
+            <li>Las capturas no equivalen al total de delitos cometidos.</li>
+            <li>No permiten determinar directamente el número de víctimas.</li>
+            <li>Los conteos absolutos no son tasas poblacionales.</li>
+            <li>No permiten establecer relaciones causales.</li>
+            <li>Sin una serie histórica no se pueden identificar tendencias temporales.</li>
+            <li>Las diferencias territoriales pueden relacionarse con factores que este conjunto no permite comprobar.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor pie-grid">
+      <div>
+        <a class="marca marca-pie" href="#inicio"><span class="marca-simbolo" aria-hidden="true">G</span><span class="marca-texto">Geografía de las capturas</span></a>
+        <p>Proyecto académico de análisis descriptivo territorial.</p>
+      </div>
+      <div class="pie-creditos">
+        <p><strong>Autoría:</strong> <span data-meta="autor">Pendiente de confirmación</span></p>
+        <p><strong>Institución:</strong> <span data-meta="institucion">Pendiente de confirmación</span></p>
+        <p><strong>Fuente de datos:</strong> <span data-meta="fuente_original">Pendiente de confirmación documental</span></p>
+        <p><strong>Fuente cartográfica consultada:</strong> DANE, MGN 2025; geometría no disponible en este producto.</p>
+        <p><strong>Herramientas:</strong> Python, pandas, Altair, Vega-Lite, HTML, CSS y JavaScript.</p>
+        <p><strong>Actualización del análisis:</strong> <time data-meta="fecha_generacion">—</time></p>
+      </div>
+    </div>
+    <div class="contenedor pie-nota">
+      <p>Este proyecto fue desarrollado mediante un flujo de análisis de datos reproducible, con apoyo de herramientas de inteligencia artificial para la generación de código, procesamiento de datos y desarrollo web. Las interpretaciones y decisiones académicas corresponden al autor.</p>
+      <a href="https://github.com/lmmunozg02/Dataset" target="_blank" rel="noopener noreferrer">Repositorio del proyecto<span class="nota-enlace"> (puede requerir acceso si es privado)</span></a>
+    </div>
+  </footer>
+
+  <div id="estado-datos" class="estado-datos" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="aviso-sin-js">Activa JavaScript para cargar los indicadores y explorar la tabla interactiva. Los gráficos individuales siguen disponibles mediante los enlaces de metodología.</p></noscript>
+</body>
+</html>

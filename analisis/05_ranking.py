@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import altair as alt
@@ -12,6 +13,7 @@ RAIZ_REPOSITORIO = Path(__file__).resolve().parents[1]
 RUTA_DATOS = RAIZ_REPOSITORIO / "datos" / "limpio" / "capturas_colombia_limpio.csv"
 RUTA_TABLA = RAIZ_REPOSITORIO / "docs" / "tablas" / "ranking_territorial.csv"
 RUTA_GRAFICO = RAIZ_REPOSITORIO / "docs" / "graficos" / "ranking.html"
+RUTA_JSON = RAIZ_REPOSITORIO / "docs" / "data" / "ranking.json"
 FUENTE = (
     "Fuente: archivo agregado suministrado por el estudiante; "
     "fuente original pendiente de confirmación."
@@ -27,8 +29,8 @@ def crear_grafico(ranking: pd.DataFrame) -> alt.TopLevelMixin:
     )
     colores = alt.condition(
         seleccion,
-        alt.value("#1f5a85"),
-        alt.value("#b7c8d6"),
+        alt.value("#2563EB"),
+        alt.value("#DBEAFE"),
     )
     dominio_x = [0, float(ranking["capturas"].max()) * 1.32]
     barras = (
@@ -55,11 +57,11 @@ def crear_grafico(ranking: pd.DataFrame) -> alt.TopLevelMixin:
             ],
         )
         .add_params(seleccion)
-        .properties(width=760, height=820)
+        .properties(width="container", height=820)
     )
     etiquetas = (
         alt.Chart(ranking)
-        .mark_text(align="left", baseline="middle", dx=4, fontSize=10, color="#263746")
+        .mark_text(align="left", baseline="middle", dx=4, fontSize=10, color="#0F172A")
         .encode(
             y=alt.Y(
                 "departamento:N",
@@ -71,7 +73,7 @@ def crear_grafico(ranking: pd.DataFrame) -> alt.TopLevelMixin:
     )
     grafico = (barras + etiquetas).properties(
         title=alt.TitleParams(
-            text="¿Qué departamentos presentan los mayores y menores registros de capturas?",
+            text="¿Qué territorios presentan los mayores y menores registros de capturas?",
             subtitle=f"Ranking descendente · n = {len(ranking)} territorios",
             anchor="start",
         )
@@ -80,7 +82,7 @@ def crear_grafico(ranking: pd.DataFrame) -> alt.TopLevelMixin:
         alt.Chart(pd.DataFrame({"fuente": [f"{FUENTE}  Selecciona una barra para resaltarla; doble clic para limpiar."]}))
         .mark_text(align="left", fontSize=11, color="#4b5563")
         .encode(text="fuente:N")
-        .properties(width=760, height=28)
+        .properties(width="container", height=28)
     )
     return (
         alt.vconcat(grafico, pie, spacing=8)
@@ -116,8 +118,30 @@ def main() -> None:
 
     RUTA_TABLA.parent.mkdir(parents=True, exist_ok=True)
     RUTA_GRAFICO.parent.mkdir(parents=True, exist_ok=True)
+    RUTA_JSON.parent.mkdir(parents=True, exist_ok=True)
     ranking.drop(columns="etiqueta").to_csv(RUTA_TABLA, index=False, encoding="utf-8")
     crear_grafico(ranking).save(RUTA_GRAFICO)
+    resultado_web = {
+        "tamano_muestra_territorios": int(len(ranking)),
+        "total_capturas": total,
+        "fuente": FUENTE,
+        "territorios": [
+            {
+                "posicion": int(fila.posicion),
+                "departamento": str(fila.departamento),
+                "capturas": int(fila.capturas),
+                "participacion_porcentual": float(fila.participacion_porcentual),
+                "participacion_acumulada_porcentual": float(
+                    fila.participacion_acumulada_porcentual
+                ),
+            }
+            for fila in ranking.itertuples(index=False)
+        ],
+    }
+    RUTA_JSON.write_text(
+        json.dumps(resultado_web, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     print(f"Territorios incluidos: {len(ranking)}")
     print("Cinco primeros:")
@@ -126,6 +150,7 @@ def main() -> None:
     print(ranking.tail(5)[["posicion", "departamento", "capturas", "participacion_porcentual"]].to_string(index=False))
     print(f"Tabla: {RUTA_TABLA.relative_to(RAIZ_REPOSITORIO)}")
     print(f"Gráfico: {RUTA_GRAFICO.relative_to(RAIZ_REPOSITORIO)}")
+    print(f"Datos web: {RUTA_JSON.relative_to(RAIZ_REPOSITORIO)}")
 
 
 if __name__ == "__main__":

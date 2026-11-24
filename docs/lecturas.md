@@ -51,4 +51,4 @@
 
 **Justificación personal del estudiante:** pendiente.
 
-No se redactaron hallazgos, dudas ni interpretaciones en nombre del estudiante. Antes de continuar a la página web, el estudiante debe escribir sus aportes, revisar las cifras y justificar su elección del gráfico principal.
+No se redactaron hallazgos, dudas ni interpretaciones en nombre del estudiante. Estos aportes continúan pendientes; la página web los identifica como tales y no los reemplaza. El estudiante puede completarlos posteriormente y revisar la justificación de su elección del gráfico principal.

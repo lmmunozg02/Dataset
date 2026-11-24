@@ -114,10 +114,27 @@ python analisis/07_estadisticas.py
 
 El script de carga informa el esquema, muestra, tipos, valores faltantes, duplicados, codificación, separador, territorios únicos y hash. El inventario genera `docs/inventario.md`; la limpieza genera el CSV limpio y `docs/limpieza.md`. Los scripts 04–07 producen estadísticas, tablas y gráficos HTML. La capa DANE no pudo descargarse desde este entorno; `06_espacial.py` genera una alternativa en barras, no un mapa, y documenta la limitación en `docs/espacial.md`. `docs/lecturas.md` deja los campos de hallazgo, duda y elección principal para el estudiante. Ejecuta los pasos en orden y revisa sus resultados.
 
+## Sitio web y vista previa local
+
+La página editorial se encuentra en `docs/index.html`. Sus indicadores y tablas consumen resultados JSON agregados, generados por `04_distribucion.py`, `05_ranking.py` y `07_estadisticas.py`. Después de generar los resultados, verifica su consistencia con:
+
+```bash
+python analisis/08_validacion.py
+```
+
+Para revisar el sitio localmente, desde la raíz del repositorio ejecuta:
+
+```bash
+python -m http.server 8000 --directory docs
+```
+
+Abre `http://localhost:8000`. La publicación mediante GitHub Pages y la URL definitiva están pendientes de autorización y configuración.
+
 ## Herramientas
 
 - Python y pandas para carga y procesamiento.
-- Altair para visualizaciones interactivas (se utilizará en las etapas de análisis).
+- Altair para visualizaciones interactivas.
+- HTML, CSS y JavaScript para la página estática; Vega y Vega-Lite para renderizar los gráficos.
 
 ## Créditos, publicación y revisión
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import math
 from pathlib import Path
 
@@ -13,6 +14,7 @@ RAIZ_REPOSITORIO = Path(__file__).resolve().parents[1]
 RUTA_DATOS = RAIZ_REPOSITORIO / "datos" / "limpio" / "capturas_colombia_limpio.csv"
 RUTA_TABLA = RAIZ_REPOSITORIO / "docs" / "tablas" / "frecuencias_distribucion.csv"
 RUTA_GRAFICO = RAIZ_REPOSITORIO / "docs" / "graficos" / "distribucion.html"
+RUTA_JSON = RAIZ_REPOSITORIO / "docs" / "data" / "distribucion.json"
 FUENTE = (
     "Fuente: archivo agregado suministrado por el estudiante; "
     "fuente original pendiente de confirmación."
@@ -62,7 +64,7 @@ def crear_grafico(
 ) -> alt.TopLevelMixin:
     barras = (
         alt.Chart(tabla)
-        .mark_bar(color="#315b7d", stroke="#ffffff", strokeWidth=1)
+        .mark_bar(color="#2563EB", stroke="#ffffff", strokeWidth=1)
         .encode(
             x=alt.X(
                 "intervalo_desde:Q",
@@ -82,7 +84,7 @@ def crear_grafico(
                 alt.Tooltip("territorios:Q", title="Territorios", format="d"),
             ],
         )
-        .properties(width=760, height=380)
+        .properties(width="container", height=380)
     )
 
     referencias = pd.DataFrame(
@@ -101,7 +103,7 @@ def crear_grafico(
                 title="Referencia",
                 scale=alt.Scale(
                     domain=["Promedio", "Mediana"],
-                    range=["#d17a22", "#6a4c93"],
+                    range=["#B89B5E", "#1E3A5F"],
                 ),
             ),
             tooltip=[
@@ -122,7 +124,7 @@ def crear_grafico(
         alt.Chart(pd.DataFrame({"fuente": [f"{FUENTE}  Intervalos calculados con Sturges."]}))
         .mark_text(align="left", fontSize=11, color="#4b5563")
         .encode(text="fuente:N")
-        .properties(width=760, height=28)
+        .properties(width="container", height=28)
     )
     return (
         alt.vconcat(grafico, pie, spacing=8)
@@ -143,7 +145,29 @@ def main() -> None:
     bordes, tabla = crear_intervalos(datos["capturas"])
     RUTA_TABLA.parent.mkdir(parents=True, exist_ok=True)
     RUTA_GRAFICO.parent.mkdir(parents=True, exist_ok=True)
+    RUTA_JSON.parent.mkdir(parents=True, exist_ok=True)
     tabla.to_csv(RUTA_TABLA, index=False, encoding="utf-8")
+    resumen = {
+        "tamano_muestra_territorios": int(len(datos)),
+        "promedio_capturas_por_territorio": float(datos["capturas"].mean()),
+        "mediana_capturas_por_territorio": float(datos["capturas"].median()),
+        "minimo_capturas": int(datos["capturas"].min()),
+        "maximo_capturas": int(datos["capturas"].max()),
+        "intervalos": [
+            {
+                "desde": int(fila.intervalo_desde),
+                "hasta": int(fila.intervalo_hasta),
+                "etiqueta": str(fila.intervalo),
+                "territorios": int(fila.territorios),
+            }
+            for fila in tabla.itertuples(index=False)
+        ],
+        "fuente": FUENTE,
+    }
+    RUTA_JSON.write_text(
+        json.dumps(resumen, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     grafico = crear_grafico(
         tabla=tabla,
@@ -161,6 +185,7 @@ def main() -> None:
     print(tabla.to_string(index=False))
     print(f"Tabla: {RUTA_TABLA.relative_to(RAIZ_REPOSITORIO)}")
     print(f"Gráfico: {RUTA_GRAFICO.relative_to(RAIZ_REPOSITORIO)}")
+    print(f"Datos web: {RUTA_JSON.relative_to(RAIZ_REPOSITORIO)}")
 
 
 if __name__ == "__main__":

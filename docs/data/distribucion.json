@@ -1,0 +1,46 @@
+{
+  "tamano_muestra_territorios": 33,
+  "promedio_capturas_por_territorio": 67.3030303030303,
+  "mediana_capturas_por_territorio": 47.0,
+  "minimo_capturas": 4,
+  "maximo_capturas": 286,
+  "intervalos": [
+    {
+      "desde": 0,
+      "hasta": 50,
+      "etiqueta": "[0, 50)",
+      "territorios": 17
+    },
+    {
+      "desde": 50,
+      "hasta": 100,
+      "etiqueta": "[50, 100)",
+      "territorios": 11
+    },
+    {
+      "desde": 100,
+      "hasta": 150,
+      "etiqueta": "[100, 150)",
+      "territorios": 2
+    },
+    {
+      "desde": 150,
+      "hasta": 200,
+      "etiqueta": "[150, 200)",
+      "territorios": 0
+    },
+    {
+      "desde": 200,
+      "hasta": 250,
+      "etiqueta": "[200, 250)",
+      "territorios": 1
+    },
+    {
+      "desde": 250,
+      "hasta": 300,
+      "etiqueta": "[250, 300)",
+      "territorios": 2
+    }
+  ],
+  "fuente": "Fuente: archivo agregado suministrado por el estudiante; fuente original pendiente de confirmación."
+}
