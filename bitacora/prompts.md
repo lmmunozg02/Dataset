@@ -67,9 +67,9 @@
 - **Prompt utilizado:** autorización del estudiante para crear la plantilla de lecturas y proponer un gráfico principal, sin redactar interpretaciones personales ni decidir por el estudiante.
 - **Qué hizo el agente:** preparó una guía con preguntas, variables, tamaños de muestra, cifras verificadas, limitaciones y campos pendientes de hallazgo/duda por gráfico; propuso el ranking como candidato a gráfico principal.
 - **Archivos creados o modificados:** `docs/lecturas.md`, `README.md` y esta bitácora.
-- **Resultados:** plantilla preparada con cifras provenientes de las tablas y JSON generados en la etapa 5.
+- **Resultados:** plantilla preparada con cifras provenientes de las tablas y JSON generados en la etapa 5. El estudiante indicó que el histograma de distribución será el gráfico principal; todavía no aportó justificación personal ni textos de hallazgo/duda.
 - **Errores encontrados:** una aserción de verificación usó por error la forma masculina para el campo «duda»; se corrigió la prueba. No afectó el documento ni sus cifras.
 - **Correcciones solicitadas por el estudiante:** ninguna.
 - **Decisiones:** la propuesta de gráfico principal no es definitiva. Interpretaciones, dudas, elección y justificación deben ser redactadas por el estudiante.
-- **Aprobaciones:** el estudiante autorizó preparar la plantilla; todavía no ha aportado interpretaciones ni elegido el gráfico principal.
-- **Estado de verificación:** cifras contrastadas con resultados generados; revisión personal del estudiante pendiente.
+- **Aprobaciones:** el estudiante autorizó preparar la plantilla y comunicó su elección del histograma; la justificación personal y las interpretaciones siguen pendientes.
+- **Estado de verificación:** cifras contrastadas con resultados generados; revisión personal del estudiante pendiente antes de continuar a la página.

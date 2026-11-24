@@ -47,7 +47,7 @@
 
 **Propuesta:** el ranking territorial, porque responde directamente qué territorios tienen mayores y menores registros, compara los 33 conteos y presenta porcentajes junto con sus cantidades. La alternativa espacial es una gráfica de barras, no un mapa, y el histograma resume frecuencias en lugar de identificar territorios.
 
-**Elección definitiva del estudiante:** pendiente.
+**Elección comunicada por el estudiante:** distribución (histograma).
 
 **Justificación personal del estudiante:** pendiente.
 
