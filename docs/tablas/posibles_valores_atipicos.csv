@@ -1,0 +1,4 @@
+departamento,capturas,limite_inferior_1_5_ric,limite_superior_1_5_ric,criterio
+Valle del Cauca,203,-47.5,156.5,"Valores fuera de Q1 - 1,5 × RIC o Q3 + 1,5 × RIC"
+"Bogotá, D.C.",255,-47.5,156.5,"Valores fuera de Q1 - 1,5 × RIC o Q3 + 1,5 × RIC"
+Antioquia,286,-47.5,156.5,"Valores fuera de Q1 - 1,5 × RIC o Q3 + 1,5 × RIC"

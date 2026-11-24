@@ -1,0 +1,15 @@
+indicador,valor,unidad
+Total de capturas registradas,2221.0,capturas
+Número de territorios analizados,33.0,territorios
+Promedio por territorio,67.3030303030303,capturas
+Mediana por territorio,47.0,capturas
+Mínimo,4.0,capturas
+Máximo,286.0,capturas
+Rango,282.0,capturas
+Desviación estándar muestral,66.83771617156216,capturas
+Primer cuartil,29.0,capturas
+Tercer cuartil,80.0,capturas
+Rango intercuartílico,51.0,capturas
+"Límite inferior 1,5 × RIC",-47.5,capturas
+"Límite superior 1,5 × RIC",156.5,capturas
+Posibles valores atípicos identificados,3.0,territorios
